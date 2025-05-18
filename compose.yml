@@ -1,0 +1,16 @@
+services:
+  next-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - API_URL=http://app-main:8080
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - hotel-network
+
+networks:
+  hotel-network:
+    external: true
